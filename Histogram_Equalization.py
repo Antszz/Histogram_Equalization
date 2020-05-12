@@ -14,7 +14,6 @@ for i in range(sh):
     for j in range(sw):
         simg[i][j] = img[i+sh][j+sw]
 cv2.imshow('SubImagen',simg)
-cv2.imwrite('subImagen.jpg',simg)
 
 histS = cv2.calcHist([simg], [0], None, [256], [0, 256])
 hist = cv2.calcHist([img], [0], None, [256], [0, 256])
@@ -39,11 +38,10 @@ for i in range(height):
 
 histR = cv2.calcHist([res], [0], None, [256], [0, 256])
 cv2.imshow('Resultado',res)
-cv2.imwrite('resultado.jpg',res)
 cv2.imshow('ImagenOriginal',img)
 
 plt.plot(histR, color='red' )
-#plt.plot(histS, color='black' )
+plt.plot(hist, color='black' )
 plt.xlabel('intensidad de iluminacion')
 plt.ylabel('cantidad de pixeles')
 plt.show()
